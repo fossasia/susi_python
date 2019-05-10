@@ -5,5 +5,4 @@ install:
   - pip install -U pytest-runner
 script:
   # for Python API wrapper
-  - cd python_wrapper
   - python setup.py pytest
