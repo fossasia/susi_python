@@ -1,8 +1,19 @@
 language: python
 python:
-  - "3.6"
-install:
-  - pip install -U pytest-runner
-script:
-  # for Python API wrapper
-  - python setup.py pytest
+  - "3.5"
+jobs:
+  include:
+    - stage:
+      name: "Trigger rebuild of susi installer"
+      jdk: oraclejdk8
+      script: |
+        echo "TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
+        if [[ (($TRAVIS_BRANCH == development) || ($TRAVIS_BRANCH == master)) &&
+              ($TRAVIS_PULL_REQUEST == false) ]] ; then
+          curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
+          sh trigger-travis.sh --branch development fossasia susi_installer $TRAVIS_ACCESS_TOKEN
+        fi
+    - stage: # runs in parallel with the previous job
+      script: |
+        pip install -U pytest-runner
+        python setup.py pytest
