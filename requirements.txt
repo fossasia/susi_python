@@ -1,3 +1,6 @@
 requests>=2.13.0
 youtube-dl 
 geocoder
+
+# Repo for wheel packages, pre-compiled for python3.7, 3.6, and ARM
+--extra-index-url https://repo.fury.io/fossasia/
