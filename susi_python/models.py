@@ -139,6 +139,7 @@ class AudioAction(BaseAction):
 class MediaAction(BaseAction):
     def __init__(self, mediaAction):
         super().__init__()
+        self.type = mediaAction
 
 
 class VolumeAction(BaseAction):

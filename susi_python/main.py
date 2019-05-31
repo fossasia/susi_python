@@ -83,11 +83,8 @@ def generate_result(response):
     actions = response.answer.actions
     data = response.answer.data
     
-    print(actions)
-
     for action in actions:
         if isinstance(action, AnswerAction):
-            print(action)
             result['answer'] = action.expression
         elif isinstance(action, AudioAction):
             result['identifier'] = action.identifier
@@ -107,7 +104,6 @@ def generate_result(response):
             result['rss'] = {'entities': entities, 'count': count}
         elif isinstance(action, StopAction):
             result['stop'] = action
-            break
         elif isinstance(action, MediaAction):
             result['media_action'] = action.type
 
