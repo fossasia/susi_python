@@ -44,7 +44,6 @@ def get_query_response(parsed_dict):
 
     actions = [get_action(jsn)
                for jsn in ans['actions']]
-    print(actions[::-1])
     answer = Answer(data, metadata, actions[::-1])
 
     try:
