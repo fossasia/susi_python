@@ -3,7 +3,12 @@ from .models import *
 
 def get_action(jsn):
     if jsn['type'] == 'answer':
-        return AnswerAction(jsn['expression'])
+        # language switching action is not an explicit one, but
+        # implicit when the action contains the "language" tag
+        if "language" in jsn:
+            return LanguageSwitchAction(jsn['language'], jsn['expression'])
+        else:
+            return AnswerAction(jsn['expression'])
     elif jsn['type'] == 'table':
         return TableAction(jsn['columns'])
     elif jsn['type'] == 'map':

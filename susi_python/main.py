@@ -106,6 +106,9 @@ def generate_result(response):
             result['stop'] = action
         elif isinstance(action, MediaAction):
             result['media_action'] = action.type
+        elif isinstance(action, LanguageSwitchAction):
+            result['language'] = action.language
+            result['answer'] = action.expression
 
     return result
 
