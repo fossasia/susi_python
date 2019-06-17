@@ -94,6 +94,11 @@ class TableAction(BaseAction):
         # columns is a dictionary containing list of names of column to be displayed on client.
         self.columns = columns
 
+class LanguageSwitchAction(BaseAction):
+    def __init__(self, language, expression):
+        super().__init__()
+        self.language = language
+        self.expression = expression
 
 class MapAction(BaseAction):
     def __init__(self, latitude, longitude, zoom=None):
