@@ -35,6 +35,8 @@ def get_action(jsn):
         return MediaAction(jsn['type'])
     elif jsn['type'] == 'previous':
         return MediaAction(jsn['type'])
+    elif jsn['type'] == 'shuffle':
+        return MediaAction(jsn['type'])
     else:
         return UnknownAction()
 
