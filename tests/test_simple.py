@@ -1,4 +1,4 @@
-from susi_python import susi_client as susi
+import susi_python as susi
 
 
 # Check a simple reply
