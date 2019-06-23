@@ -1,4 +1,4 @@
-import susi_python as susi
+from susi_python import susi_client as susi
 import os
 
 '''
