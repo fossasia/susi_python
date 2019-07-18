@@ -1,7 +1,6 @@
 class QueryResponse:
     def __init__(self,answer, json, session):
         self.query = json['query']
-        self.count = json['count']
         self.client_id = json['client_id']
         self.query_date = json['query_date']
         self.answer_time = json['answer_time']
@@ -9,9 +8,9 @@ class QueryResponse:
         self.answer = answer
 
     def __repr__(self):
-        return 'QueryResponse (query = %s , count = %s, client_id = %s, ' \
+        return 'QueryResponse (query = %s , client_id = %s, ' \
                'query_date = %s, answer_time = %s, session = %s, answer = %s )' % \
-               (self.query, self.count, self.client_id, self.query_date, self.answer_time, self.session, self.answer)
+               (self.query, self.client_id, self.query_date, self.answer_time, self.session, self.answer)
 
 
 class LoginResponse:
