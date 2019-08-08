@@ -82,7 +82,7 @@ def generate_result(response):
     result = dict()
     actions = response.answer.actions
     data = response.answer.data
-    
+
     for action in actions:
         if isinstance(action, AnswerAction):
             result['answer'] = action.expression
@@ -109,6 +109,9 @@ def generate_result(response):
         elif isinstance(action, LanguageSwitchAction):
             result['language'] = action.language
             result['answer'] = action.expression
+
+        result['plan_delay'] = response.plan_delay
+        result['plan_date'] = response.plan_date
 
     return result
 
