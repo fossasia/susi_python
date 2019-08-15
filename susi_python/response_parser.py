@@ -6,8 +6,12 @@ def get_action(jsn):
         # language switching action is not an explicit one, but
         # implicit when the action contains the "language" tag
         if "language" in jsn:
+            if 'plan_delay' in jsn.keys() and 'plan_date' in jsn.keys():
+                return LanguageSwitchAction(jsn['language'], jsn['expression'], jsn['plan_delay'], jsn['plan_date'])
             return LanguageSwitchAction(jsn['language'], jsn['expression'])
         else:
+            if 'plan_delay' in jsn.keys() and 'plan_date' in jsn.keys():
+                return AnswerAction(jsn['expression'], jsn['plan_delay'], jsn['plan_date'])
             return AnswerAction(jsn['expression'])
     elif jsn['type'] == 'table':
         return TableAction(jsn['columns'])
@@ -22,6 +26,8 @@ def get_action(jsn):
     elif jsn['type'] == 'stop':
         return StopAction()
     elif jsn['type'] == 'audio_play':
+        if 'plan_delay' in jsn.keys() and 'plan_date' in jsn.keys():
+            return AudioAction(jsn['identifier'], jsn['identifier_type'], jsn['plan_delay'], jsn['plan_date'])
         return AudioAction(jsn['identifier'], jsn['identifier_type'])
     elif jsn['type'] == 'audio_volume':
         return VolumeAction(jsn['volume'])

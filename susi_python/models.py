@@ -6,13 +6,6 @@ class QueryResponse:
         self.answer_time = json['answer_time']
         self.session = session
         self.answer = answer
-        self.plan_delay = None
-        self.plan_date = None
-        for action in json["answers"][0]["actions"]:
-            if "plan_delay" in action.keys():
-                self.plan_delay = action["plan_delay"]
-            if "plan_date" in action.keys():
-                self.plan_date = action["plan_date"]
 
     def __repr__(self):
         return 'QueryResponse (query = %s , client_id = %s, ' \
@@ -79,8 +72,9 @@ class Metadata:
 
 
 class BaseAction:
-    def __init__(self):
-        pass
+    def __init__(self, plan_delay = None, plan_date = None):
+        self.plan_delay = plan_delay
+        self.plan_date = plan_date
 
 
 class UnknownAction(BaseAction):
@@ -89,8 +83,8 @@ class UnknownAction(BaseAction):
 
 
 class AnswerAction(BaseAction):
-    def __init__(self, expression):
-        super().__init__()
+    def __init__(self, expression, plan_delay = None, plan_date = None):
+        super().__init__(plan_delay,plan_date)
         self.expression = expression
 
 
@@ -101,8 +95,8 @@ class TableAction(BaseAction):
         self.columns = columns
 
 class LanguageSwitchAction(BaseAction):
-    def __init__(self, language, expression):
-        super().__init__()
+    def __init__(self, language, expression, plan_delay = None, plan_date = None):
+        super().__init__(plan_delay,plan_date)
         self.language = language
         self.expression = expression
 
@@ -142,8 +136,8 @@ class StopAction(BaseAction):
         super().__init__()
 
 class AudioAction(BaseAction):
-    def __init__(self, identifier , identifier_type):
-        super().__init__()
+    def __init__(self, identifier , identifier_type, plan_delay = None, plan_date = None):
+        super().__init__(plan_delay,plan_date)
         self.identifier = identifier
         self.identifier_type = identifier_type
 
