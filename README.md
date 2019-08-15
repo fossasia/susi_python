@@ -1,5 +1,10 @@
 # Python Wrapper for the Susi AI API
 
+Master: [![Build Status](https://travis-ci.org/fossasia/susi_python.svg?branch=master)](https://travis-ci.org/fossasia/susi_python)
+Development: [![Build Status](https://travis-ci.org/fossasia/susi_python.svg?branch=development)](https://travis-ci.org/fossasia/susi_python)
+[![Join the chat at https://gitter.im/fossasia/susi_hardware](https://badges.gitter.im/fossasia/susi_hardware.svg)](https://gitter.im/fossasia/susi_hardware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Twitter Follow](https://img.shields.io/twitter/follow/susiai_.svg?style=social&label=Follow&maxAge=2592000?style=flat-square)](https://twitter.com/susiai_)
+
 This is part of the SUSI.AI project which aims to implement a full infrastructure for Free and Open Source Smart Speaker and Personal Assistants. This sub-project implements an API for the AI server, https://github.com/fossasia/susi_server
 
 ## Project Overview 
