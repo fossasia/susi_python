@@ -5,7 +5,7 @@ Development: [![Build Status](https://travis-ci.org/fossasia/susi_python.svg?bra
 [![Join the chat at https://gitter.im/fossasia/susi_hardware](https://badges.gitter.im/fossasia/susi_hardware.svg)](https://gitter.im/fossasia/susi_hardware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter Follow](https://img.shields.io/twitter/follow/susiai_.svg?style=social&label=Follow&maxAge=2592000?style=flat-square)](https://twitter.com/susiai_)
 
-The susi_python repository holds the Python wrapper for SUSI.AI which covers the client API function to access the susi_server either hosted locally or on https://api.susi.ai. This sub-project implements an API for the AI server, https://github.com/fossasia/susi_server. Currently the wrapper supports basic chat and auth functionalities. 
+The susi_python repository holds the Python wrapper for SUSI.AI which covers the client API function to access the susi_server either hosted locally or on https://api.susi.ai. This sub-project implements an API for the AI server at https://github.com/fossasia/susi_server. Currently the wrapper supports basic chat and auth functionalities. 
 
 The SUSI.AI project provides a full infrastructure for a Free and Open Source Smart Speaker and Personal Assistants. 
 
